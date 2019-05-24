@@ -18,11 +18,17 @@ while board.has_winner() == 0:
         print('The cell is not empty. Please reenter.')
         continue
 
-    if board.has_winner() != 0:
+    if board.has_winner() == -1:
         print('You won!')
+        break
+    elif board.has_winner() == 2:
+        print("Draw.")
         break
 
     board = board.tree()
     print(board)
 else:
-    print('You lost!')
+    if board.has_winner() == 1:
+        print('You lost!')
+    elif board.has_winner() == 2:
+        print("Draw.")
